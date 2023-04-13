@@ -1,0 +1,83 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Mobil {
+private:
+    string merk;
+    int bensin;
+    int konsumsi_bensin;
+
+public:
+    // Constructor
+    Mobil(string merk, int bensin, int konsumsi_bensin) {
+        this->merk = merk;
+        this->bensin = bensin;
+        this->konsumsi_bensin = konsumsi_bensin;
+    }
+
+    // Setter untuk merk
+    void set_merk(string merk) {
+        this->merk = merk;
+    }
+
+    // Getter untuk merk
+    string get_merk() {
+        return this->merk;
+    }
+
+    // Setter untuk bensin
+    void set_bensin(int bensin) {
+        this->bensin = bensin;
+    }
+
+    // Getter untuk bensin
+    int get_bensin() {
+        return this->bensin;
+    }
+
+    // Setter untuk konsumsi_bensin
+    void set_konsumsi_bensin(int konsumsi_bensin) {
+        this->konsumsi_bensin = konsumsi_bensin;
+    }
+
+    // Getter untuk konsumsi_bensin
+    int get_konsumsi_bensin() {
+        return this->konsumsi_bensin;
+    }
+
+    // Method untuk mengecek apakah bensin cukup untuk perjalanan
+    bool cukup(int jarak) {
+        int bensin_yang_dibutuhkan = jarak / this->konsumsi_bensin;
+        return this->bensin >= bensin_yang_dibutuhkan;
+    }
+
+    // Method untuk melakukan perjalanan
+    void jalan(int jarak) {
+        if (this->cukup(jarak)) {
+            cout << "Mobil " << this->merk << " memiliki cukup bensin untuk melakukan perjalanan sejauh " << jarak << " km." << endl;
+        } else {
+            cout << "Mobil " << this->merk << " tidak memiliki cukup bensin untuk melakukan perjalanan sejauh " << jarak << " km." << endl;
+        }
+    }
+};
+
+int main() {
+    // Contoh penggunaan program
+    Mobil mobil1("Toyota", 50, 10);  // Membuat objek mobil1 dengan merk Toyota, bensin 50 liter, konsumsi_bensin 10 km/l
+    Mobil mobil2("Honda", 40, 12);   // Membuat objek mobil2 dengan merk Honda, bensin 40 liter, konsumsi_bensin 12 km/l
+
+    // Menggunakan method setter
+    mobil1.set_merk("Nissan");
+
+    // Menggunakan method getter
+    cout << "Merk mobil1: " << mobil1.get_merk() << endl;
+    cout << "Bensin mobil1: " << mobil1.get_bensin() << " liter" << endl;
+    cout << "Konsumsi bensin mobil1: " << mobil1.get_konsumsi_bensin() << " km/l" << endl;
+
+    // Menggunakan method cukup dan jalan
+    mobil1.jalan(200);  // Menjalankan mobil1 untuk perjalanan sejauh 200 km
+
+    return 0;
+}
