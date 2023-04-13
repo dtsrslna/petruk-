@@ -1,0 +1,49 @@
+class Mobil:
+    def _init_(self, merk, bensin, konsumsi_bensin):
+        self.merk = merk
+        self.bensin = bensin
+        self.konsumsi_bensin = konsumsi_bensin
+
+    # Setter untuk merk
+    def set_merk(self, merk):
+        self.merk = merk
+
+    # Getter untuk merk
+    def get_merk(self):
+        return self.merk
+
+    # Setter untuk bensin
+    def set_bensin(self, bensin):
+        self.bensin = bensin
+
+    # Getter untuk bensin
+    def get_bensin(self):
+        return self.bensin
+
+    # Setter untuk konsumsi_bensin
+    def set_konsumsi_bensin(self, konsumsi_bensin):
+        self.konsumsi_bensin = konsumsi_bensin
+
+    # Getter untuk konsumsi_bensin
+    def get_konsumsi_bensin(self):
+        return self.konsumsi_bensin
+
+    # Method untuk mengecek apakah bensin cukup untuk perjalanan
+    def cukup(self, jarak):
+        bensin_yang_dibutuhkan = jarak / self.konsumsi_bensin
+        return self.bensin >= bensin_yang_dibutuhkan
+
+    # Method untuk melakukan perjalanan
+    def jalan(self, jarak):
+        if self.cukup(jarak):
+            print(f"Mobil {self.merk} memiliki cukup bensin untuk melakukan perjalanan sejauh {jarak} km.")
+        else:
+            print(f"Mobil {self.merk} tidak memiliki cukup bensin untuk melakukan perjalanan sejauh {jarak} km.")
+
+
+# Contoh penggunaan program
+mobil1 = Mobil("Toyota", 50, 10)  # Membuat objek mobil1 dengan merk Toyota, bensin 50 liter, konsumsi_bensin 10 km/l
+mobil2 = Mobil("Honda", 40, 12)   # Membuat objek mobil2 dengan merk Honda, bensin 40 liter, konsumsi_bensin 12 km/l
+
+# Menggunakan method setter
+mobil1.set_merk("Nissan
